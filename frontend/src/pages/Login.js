@@ -67,30 +67,24 @@ const Login = () => {
     }
   };
   const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-
-  const handleGoogleLogin = async () => {
+  const handleGoogleLogin = async (credentialResponse) => {
     try {
-      // Simulate getting a Google credential token (replace with actual implementation)
-      const token = await getGoogleCredential();
-
+      const token = credentialResponse.credential;
+  
       // Send token to backend for verification and JWT generation
-      const response = await axios.post(
-        SummaryApi.loginWithGoogle.url,
-        { token },
-        { withCredentials: true }
-      );
-
+      const response = await axios.post(SummaryApi.loginWithGoogle.url, { token }, { withCredentials: true });
+  
       if (response.data.success) {
         toast.success(response.data.message);
-
-        // Reload user details and other data after successful login
-        await fetchUserDetails();
-        await fetchUserAddToCart();
-        await fetchUserAddToFavorite();
-        await fetchUserOrderProduct();
-        await fetchUserMessage();
+  
+        // Tải lại thông tin chi tiết người dùng và dữ liệu khác sau khi đăng nhập thành công
+        await fetchUserDetails(); 
+        await fetchUserAddToCart(); 
+        await fetchUserAddToFavorite(); 
+        await fetchUserOrderProduct(); 
+        await fetchUserMessage(); 
         await fetchUserBookingProduct();
-
+  
         navigate("/");
       } else {
         toast.error(response.data.message);
@@ -100,16 +94,7 @@ const Login = () => {
       toast.error("Google login failed");
     }
   };
-
-  // Mock function to simulate retrieving Google credential
-  const getGoogleCredential = async () => {
-    // You would replace this with the actual logic to retrieve the Google token
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve("mock-google-credential-token");
-      }, 1000);
-    });
-  };
+  
 
   useEffect(() => {
     // Initialize Facebook SDK
@@ -241,32 +226,12 @@ const Login = () => {
 
            
 
-            <div  className="w-full justify-center items-center flex mt-4" >
-              <button
-                onClick={handleGoogleLogin}
-                style={{
-                  backgroundColor: "#DB4437",
-                  color: "#fff",
-                  padding: "10px 20px",
-                  fontSize: "16px",
-                  fontWeight: "bold",
-                  display: "flex",
-                  alignItems: "center",
-                  borderRadius: "5px",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "transform 0.2s ease-in-out",
-                }}
-                onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")}
-                onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
-              >
-                <FontAwesomeIcon
-                  icon={faGoogle}
-                  style={{ marginRight: "8px" }}
-                />
-                Login with Google
-              </button>
+            <div className="w-full justify-center items-center flex pt-3 mt-4">
+              <GoogleLogin
+              onSuccess={handleGoogleLogin} onError={() => console.log("Login Failed")}
+              /> 
             </div>
+            
             <div className="w-full justify-center items-center flex mt-4">
               <div>
                 <button
