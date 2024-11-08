@@ -10,7 +10,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -67,9 +67,11 @@ const Login = () => {
     }
   };
   const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-  const handleGoogleLogin = async (credentialResponse) => {
+
+  const handleGoogleLogin = async () => {
     try {
-      const token = credentialResponse.credential;
+      // Simulate getting a Google credential token (replace with actual implementation)
+      const token = await getGoogleCredential();
 
       // Send token to backend for verification and JWT generation
       const response = await axios.post(
@@ -81,7 +83,7 @@ const Login = () => {
       if (response.data.success) {
         toast.success(response.data.message);
 
-        // Tải lại thông tin chi tiết người dùng và dữ liệu khác sau khi đăng nhập thành công
+        // Reload user details and other data after successful login
         await fetchUserDetails();
         await fetchUserAddToCart();
         await fetchUserAddToFavorite();
@@ -98,6 +100,17 @@ const Login = () => {
       toast.error("Google login failed");
     }
   };
+
+  // Mock function to simulate retrieving Google credential
+  const getGoogleCredential = async () => {
+    // You would replace this with the actual logic to retrieve the Google token
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("mock-google-credential-token");
+      }, 1000);
+    });
+  };
+
   useEffect(() => {
     // Initialize Facebook SDK
     window.fbAsyncInit = function () {
@@ -121,9 +134,13 @@ const Login = () => {
 
             try {
               // Send access token to the backend
-              const res = await axios.post(SummaryApi.loginWithFacebook.url, {
-                accessToken, 
-              }, { withCredentials: true });
+              const res = await axios.post(
+                SummaryApi.loginWithFacebook.url,
+                {
+                  accessToken,
+                },
+                { withCredentials: true }
+              );
 
               if (res.data.success) {
                 console.log("Login successful:", res.data);
@@ -219,14 +236,36 @@ const Login = () => {
                 Login
               </button>
             </form>
+            
+            <div className="border-t-2 mt-2">
 
-            <div className="w-full border-t-2 justify-center items-center flex pt-3 mt-4 ">
-              <div className="hover:scale-110 duration-200 ease-in-out">
-                <GoogleLogin
-                  onSuccess={handleGoogleLogin}
-                  onError={() => console.log("Login Failed")}
+           
+
+            <div  className="w-full justify-center items-center flex mt-4" >
+              <button
+                onClick={handleGoogleLogin}
+                style={{
+                  backgroundColor: "#DB4437",
+                  color: "#fff",
+                  padding: "10px 20px",
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "center",
+                  borderRadius: "5px",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "transform 0.2s ease-in-out",
+                }}
+                onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")}
+                onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+              >
+                <FontAwesomeIcon
+                  icon={faGoogle}
+                  style={{ marginRight: "8px" }}
                 />
-              </div>
+                Login with Google
+              </button>
             </div>
             <div className="w-full justify-center items-center flex mt-4">
               <div>
@@ -258,7 +297,7 @@ const Login = () => {
                 </button>
               </div>{" "}
             </div>
-
+ </div>
             <p className="my-1">
               Don't have account ?{" "}
               <Link

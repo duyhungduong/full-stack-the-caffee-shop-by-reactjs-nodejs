@@ -66,6 +66,7 @@ const userLoginFBController = async (req, res) => {
       httpOnly: true,
       secure: true,
       sameSite: "None",
+      path: "/",
     });
 
     return res.status(200).json({

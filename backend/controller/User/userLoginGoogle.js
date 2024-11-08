@@ -27,7 +27,7 @@ const userLoginGoogleController = async (req, res, next) => {
       { expiresIn: "8h" }
     );
 
-    res.cookie("token", jwtToken, { httpOnly: true, secure: true, sameSite: "None" });
+    res.cookie("token", jwtToken, { httpOnly: true, secure: true, sameSite: "None", path: "/", });
 
     return res.status(200).json({
       message: "Google login successful",

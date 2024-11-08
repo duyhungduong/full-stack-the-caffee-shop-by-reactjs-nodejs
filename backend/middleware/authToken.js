@@ -17,6 +17,11 @@ async function authToken(req, res, next) {
 
       if (err) {
         console.log("error auth", err);
+        return res.status(403).json({
+          message: "Invalid or expired token. Please log in again.",
+          error: true,
+          success: false,
+        });
       }
 
       req.userId = decoded?._id;
@@ -28,7 +33,7 @@ async function authToken(req, res, next) {
     res.status(400).json({
       message: err.message || err,
       data: [],
-      erroe: true,
+      error: true,
       success: false,
     });
   }
