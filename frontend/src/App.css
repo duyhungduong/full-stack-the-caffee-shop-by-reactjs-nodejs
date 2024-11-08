@@ -1,0 +1,176 @@
+.customShadow {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    to right,
+    #77a1d3 0%,
+    #79cbca 51%,
+    #77a1d3 100%
+  );
+  border-radius: 50px;
+}
+
+/* scoll bar hiddenn*/
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+/* Custom scrollbar for coffee shop theme */
+.scrollbar-coffee::-webkit-scrollbar {
+  width: 12px; /* Chiều rộng của thanh cuộn */
+}
+.scrollbar-coffee {
+  overflow-y: hidden; /* Tắt thanh cuộn dọc */
+  overflow-x: auto; /* Vẫn cho phép cuộn ngang nếu cần */
+}
+
+.scrollbar-coffee::-webkit-scrollbar-track {
+  background-color: #f1e2c0; /* Màu nền track (phần nền của thanh cuộn) */
+  border-radius: 10px; /* Bo góc của track */
+}
+
+.scrollbar-coffee::-webkit-scrollbar-thumb {
+  background-color: #6f4e37; /* Màu của thanh cuộn (màu nâu cà phê) */
+  border-radius: 10px; /* Bo tròn thanh cuộn */
+  border: 3px solid #f1e2c0; /* Viền thanh cuộn cùng màu với track */
+}
+
+.scrollbar-coffee::-webkit-scrollbar-thumb:hover {
+  background-color: #4b382a; /* Màu của thanh cuộn khi hover */
+}
+
+.updateBtnColor {
+  background-color: #4bac4d;
+  &:hover {
+    background-color: #4bac4dc5;
+  }
+}
+.addBtnColor {
+  background-color: #0090da;
+  &:hover {
+    background-color: #0091daa7;
+  }
+}
+.deleteBtnColor,
+.cancelBtnColor {
+  background-color: #e8b298;
+  &:hover {
+    background-color: #eecc8c;
+  }
+}
+.btnColor {
+  color: #fff;
+  /* margin-right: 2rem; */
+  padding: 10px 16px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.userTable {
+  @apply bg-white;
+}
+.userTable th {
+  @apply border text-base font-medium;
+}
+.userTable td {
+  @apply border text-base;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(200, 200, 200, 0.1) 25%,
+    rgba(225, 225, 225, 0.3) 50%,
+    rgba(200, 200, 200, 0.1) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1s infinite linear;
+}
+
+/* Slower shimmer effect */
+.skeleton-loading div,
+.skeleton-loading p {
+  background: linear-gradient(
+    90deg,
+    rgba(200, 200, 200, 0.1) 25%,
+    rgba(225, 225, 225, 0.3) 50%,
+    rgba(200, 200, 200, 0.1) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1s infinite linear;
+}
+
+ /* Dieu chinh font placeholder
+  */
+  
+input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bg-skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(200, 200, 200, 0.1) 25%,
+    rgba(225, 225, 225, 0.3) 50%,
+    rgba(200, 200, 200, 0.1) 75%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400% 0;
+  }
+  100% {
+    background-position: 400% 0;
+  }
+}
+
+/* Hieu ung xuat hiẹn cua product */
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* App.css */
+
+/* Kiểu mặc định cho toast */
+.toastify {
+  font-size: 1rem; /* Kích thước mặc định */
+  padding: 1rem;
+  max-width: 400px; /* Chiều rộng tối đa */
+}
+
+/* Kiểu cho toast trên thiết bị nhỏ (dưới 640px) */
+@media (max-width: 640px) {
+  .toastify {
+    font-size: 0.8rem; /* Giảm kích thước chữ */
+    padding: 0.5rem; /* Giảm padding */
+    max-width: 200px; /* Chiều rộng tối đa nhỏ hơn */
+  }
+}
