@@ -81,7 +81,7 @@ const TypeWiseTableDisplay = ({ tableType, heading }) => {
                   <Link
                     to={"/table/" + product?._id}
                     key={product._id}
-                    className="bg-white  rounded-lg shadow-md transition-transform transform hover:scale-105 cursor-pointer"
+                    className="bg-white  dark:bg-gray-100  dark:border  rounded-lg shadow-md transition-transform transform hover:scale-105 cursor-pointer"
                     onClick={scrollTop}
                   >
                     <div className="bg-coffee-background h-72 p-3 flex justify-center items-center">

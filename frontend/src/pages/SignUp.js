@@ -87,7 +87,7 @@ const SignUp = () => {
         <div className="hidden lg:flex w-5/12 mx-4">
           <img src={homeImg} alt="Coffee Cup" className="w-full h-auto" />
         </div>
-        <div className="bg-white p-5 focus-within:shadow-md rounded-xl w-full max-w-sm mx-5">
+        <div className="bg-white dark:bg-gray-100  dark:border p-5 focus-within:shadow-md rounded-xl w-full max-w-sm mx-5">
           <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
             <div>
               <img src={data.profilePic || loginIcons} alt="pic profile" />

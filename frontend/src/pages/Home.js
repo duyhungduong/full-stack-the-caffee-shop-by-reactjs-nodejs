@@ -9,6 +9,7 @@ import HorizonCardTable from "../components/Table/HorizonCardTable";
 import HorizontalCardDiscountProduct from "../components/HorizontalCardDiscountProduct";
 import SearchTableHorizontal from "../components/Table/SearchTableHorizontal";
 import VerticalTableCard from "../components/Table/VerticalTableCard";
+import VideoBackground from "../components/VideoBackground";
 
 const Home = () => {
   const [dataSearch, setDataSearch] = useState([]);
@@ -18,6 +19,7 @@ const Home = () => {
   };
   return (
     <div>
+      <VideoBackground/>
       <CategoryList />
       <BannerProduct />
       <HorizontalCardDiscountProduct

@@ -41,7 +41,7 @@ const VerticalTableCard = ({ loading, data = [] }) => {
               <Link
                 to={"/table/" + product?._id}
                 key={product._id}
-                className="bg-white rounded-lg shadow-md transition-transform transform hover:scale-105 opacity-0 animate-fadeIn delay-75"
+                className="bg-white dark:bg-gray-100  dark:border  rounded-lg shadow-md transition-transform transform hover:scale-105 opacity-0 animate-fadeIn delay-75"
                 onClick={scrollTop}
                 style={{
                   animationDelay: `${index * 100}ms`,

@@ -13,12 +13,14 @@ import { MdFavorite } from "react-icons/md";
 import { BiSolidDiscount } from "react-icons/bi";
 
 const LoadingPlaceholder = () => (
-  <div className="w-full min-w-[240px] max-w-[300px] bg-gray-100 rounded-lg shadow-md skeleton-loading transition-all duration-300">
-    <div className="bg-slate-200 h-72 p-3 flex justify-center items-center rounded-lg">
+  <div className="w-full min-w-[380px] max-w-[440px] mb-7 bg-gray-100 rounded-lg shadow-lg skeleton-loading transition-all duration-300">
+    <div className="bg-slate-200 h-96 p-3 flex justify-center items-center rounded-lg">
       <div className="bg-slate-400 h-full w-full rounded-lg"></div>
     </div>
     <div className="p-4 grid gap-1 mt-1">
       <div className="w-3/4 h-4 bg-gray-400 rounded-md"></div>
+      <div className="w-1/2 h-4 bg-gray-400 rounded-md"></div>
+      <div className="w-full h-6 bg-gray-400 rounded-md"></div>
       <div className="w-1/2 h-4 bg-gray-400 rounded-md"></div>
       <div className="w-full h-6 bg-gray-400 rounded-md"></div>
     </div>
@@ -34,7 +36,10 @@ const VerticalCardProduct = ({ category, heading }) => {
   const fetchData = useCallback(async () => {
     try {
       const categoryProduct = await fetchCategoryWiseProduct(category);
-      setData({ products: categoryProduct?.data || [], loading: false });
+      if(categoryProduct.success){
+        setData({ products: categoryProduct?.data || [], loading: false });
+      }
+      
     } catch (error) {
       console.error("Error fetching data", error);
       setData({ products: [], loading: false });
@@ -100,7 +105,7 @@ const VerticalCardProduct = ({ category, heading }) => {
               <Link
                 to={`product/${product?._id}`}
                 key={product?._id}
-                className="w-full min-w-[240px] max-w-[300px] md:min-w-[400px] bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+                className="w-full min-w-[240px] max-w-[300px] md:min-w-[400px] bg-white dark:bg-gray-100 dark:border  mt-3 mb-9 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
               >
                 <div className="bg-coffee-background h-72 md:h-96 p-3 flex justify-center items-center rounded-lg overflow-hidden">
                   <img
@@ -116,9 +121,9 @@ const VerticalCardProduct = ({ category, heading }) => {
                   <div className="flex gap-2 items-center">
                     <p className="capitalize text-slate-500">{product.category}</p>
                     {product?.sellingPrice !== product?.price && (
-                      <p className="flex items-center font-sans justify-center bg-yellow-200 font-serif rounded-md p-1">
+                      <p className="flex items-center font-serif justify-center bg-yellow-200 rounded-md p-1">
                         <BiSolidDiscount className="mr-1" />
-                        Giảm giá {Math.round(((product.price - product.sellingPrice) / product.price) * 100)} %
+                        -{Math.round(((product.price - product.sellingPrice) / product.price) * 100)} %
                       </p>
                     )}
                   </div>

@@ -6,6 +6,7 @@ import { CgUnavailable } from "react-icons/cg";
 import fetchTypeWiseTable from "../../helper/Table/fetchTypeWiseTable";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import scrollTop from "../../helper/scrollTop";
 
 const HorizonCardTable = ({ tableType, heading }) => {
   const [data, setData] = useState([]);
@@ -46,14 +47,16 @@ const HorizonCardTable = ({ tableType, heading }) => {
     });
   };
 
-  // const handleBooking = () => {
-  //   if (!user?._id) {
-  //     toast.error("Vui lòng đăng nhập trước khi Booking");
-  //     navigate("/login");
-  //   } else {
-  //     navigate("/booking", { state: { tableData: data } });
-  //   }
-  // };
+  const handleBooking = (table) => {
+    if (!user?._id) {
+      toast.error("Vui lòng đăng nhập trước khi Booking");
+      navigate("/login");
+    } else {
+      
+      navigate("/booking", { state: { tableData: table } }); // Chuyển hướng đến trang Booking với dữ liệu
+      scrollTop();
+    }
+  };
 
   return (
     <div className="container mx-auto px-2 py-4 relative">
@@ -100,7 +103,7 @@ const HorizonCardTable = ({ tableType, heading }) => {
                 table?.isAvailableTable ? (
                   <Link
                     to={"table/" + table?._id}
-                    className="relative w-full min-w-[360px] md:min-w-[400px] max-w-[360px] md:max-w-[400px] h-48 bg-white rounded-lg hover:shadow-md shadow-coffee-dark flex transition-transform duration-300 transform hover:scale-105 hover:z-20 m-2"
+                    className="relative w-full min-w-[360px] md:min-w-[400px] max-w-[360px] md:max-w-[400px] h-48 bg-white  dark:border  dark:bg-gray-100  rounded-lg hover:shadow-md shadow-coffee-dark flex transition-transform duration-300 transform hover:scale-105 hover:z-20 m-2"
                     style={{ overflow: "visible", zIndex: 1 }}
                     key={
                       index + table?.tableNumber + table?.tableType + table?._id
@@ -136,12 +139,16 @@ const HorizonCardTable = ({ tableType, heading }) => {
                           {table?.tableArea}
                         </p>
                       </div>
-                      <Link
+                      <button
                         to={"table/" + table?._id}
                         className="text-sm flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-coffee-beige to-coffee-light text-coffee-dark hover:from-pastel-teal hover:to-pastel-blue-dark rounded-lg"
+                        onClick={(e) => {
+                          e.preventDefault(); // Prevents Link navigation when clicking the button
+                          handleBooking(table);
+                        }}
                       >
                         <PiCursorClickDuotone /> Booking
-                      </Link>
+                      </button>
                     </div>
                   </Link>
                 ) : (

@@ -11,6 +11,7 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import caffee from "../assest/logocaffee.png";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -153,7 +154,8 @@ const Login = () => {
     );
   };
 
-  console.log("data login", data);
+  // console.log("data login", data);
+
   return (
     <section
       id="login"
@@ -162,7 +164,7 @@ const Login = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "100vh",
+        height: "110vh",
       }}
     >
       <div className="mx-auto container p-4 flex items-center justify-center h-full">
@@ -170,13 +172,23 @@ const Login = () => {
           <img src={homeImg} alt="Coffee Cup" className="w-full h-auto" />
         </div>
         <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
-          <div className="bg-white p-5 w-full max-w-sm mx-5 focus-within:shadow-md rounded-sm">
-            <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
+          <div className="bg-white dark:bg-gray-100 dark:border  p-5 w-full max-w-sm mx-5 focus-within:shadow-md rounded-sm">
+            
+            {/* <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
               <img src={loginIcons} alt="login icons" />
+            </div> */}
+            <div className="pt-2 flex justify-center items-center mx-auto relative overflow-hidden hover:scale-125 duration-300 ease-in-out">
+              <Link to={"/"} className="flex-shrink-0">
+                <img
+                  src={caffee}
+                  alt=""
+                  className="w-auto h-auto max-w-[200px] max-h-[110px] object-contain"
+                />
+              </Link>
             </div>
             <form
               action=""
-              className="pt-6 flex flex-col gap-2"
+              className="pt-3 flex flex-col gap-2"
               onSubmit={handleSubmit}
             >
               <div className="grid">
@@ -217,22 +229,14 @@ const Login = () => {
                 Forgot password?
               </Link> */}
               </div>
-              <button className="bg-amber-900 text-white hover:bg-amber-950 px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-105 transition-all mx-auto block mt-4 updateBtnColor">
+              <button className="bg-amber-900 text-white hover:bg-amber-950 px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 duration-200 ease-in-out transition-all mx-auto block my-2 updateBtnColor">
                 Login
               </button>
             </form>
             
             <div className="border-t-2 mt-2">
 
-           
-
-            <div className="w-full justify-center items-center flex pt-3 mt-4">
-              <GoogleLogin
-              onSuccess={handleGoogleLogin} onError={() => console.log("Login Failed")}
-              /> 
-            </div>
-            
-            <div className="w-full justify-center items-center flex mt-4">
+           <div className="w-full justify-center items-center flex mt-4">
               <div>
                 <button
                   onClick={handleFacebookLogin}
@@ -262,6 +266,14 @@ const Login = () => {
                 </button>
               </div>{" "}
             </div>
+
+            <div className="w-full justify-center items-center flex pt-3 my-2 hover:scale-110 duration-200 ease-in-out">
+              <GoogleLogin
+              onSuccess={handleGoogleLogin} onError={() => console.log("Login Failed")}
+              /> 
+            </div>
+            
+            
  </div>
             <p className="my-1">
               Don't have account ?{" "}

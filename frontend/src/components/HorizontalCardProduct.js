@@ -17,7 +17,7 @@ const ProductCard = ({ product, userRole, handleAction, isFavorite }) => {
   return (
     <Link
       to={`product/${product._id}`}
-      className="relative w-full min-w-[360px] md:min-w-[400px] max-w-[360px] md:max-w-[400px] h-44 bg-white rounded-lg hover:shadow-md shadow-slate-600 flex transition-transform duration-300 transform hover:scale-105 hover:z-20 m-2 mb-3 " // Sản phẩm nhỏ hơn một chút khi rê chuột vào
+      className="relative w-full min-w-[360px] md:min-w-[400px] max-w-[360px] md:max-w-[400px] h-44 bg-white dark:bg-gray-100 dark:border rounded-lg hover:shadow-md shadow-slate-600 flex transition-transform duration-300 transform hover:scale-105 hover:z-20 m-2 mb-4 " // Sản phẩm nhỏ hơn một chút khi rê chuột vào
       style={{ overflow: "visible", zIndex: 1 }}
     >
       <div className="bg-coffee-background h-full w-1/2 p-4 min-w-[120px] md:min-w-[145px] rounded-l-lg">
@@ -39,7 +39,7 @@ const ProductCard = ({ product, userRole, handleAction, isFavorite }) => {
               {product.category}
             </p>
             <p className="flex items-center justify-center text-xs bg-yellow-200 rounded-md p-1 hover:shadow-md transition-transform duration-300 transform hover:scale-105">
-              <BiSolidDiscount /> Giảm giá
+              <BiSolidDiscount className="mr-1" /> Giảm giá
             </p>
           </div>
         )}
@@ -89,9 +89,13 @@ const HorizontalCardProduct = ({ category, heading }) => {
     setLoading(true);
     try {
       const categoryProduct = await fetchCategoryWiseProduct(category);
-      setData(categoryProduct?.data);
-    } finally {
-      setLoading(false);
+      if(categoryProduct.success){
+        setData(categoryProduct?.data);
+        setLoading(false);
+      }
+      
+    } catch (error) {
+      console.error("Error fetching data", error);
     }
   };
 
@@ -126,7 +130,9 @@ const HorizontalCardProduct = ({ category, heading }) => {
 
   return (
     <div className="container mx-auto px-4 my-8 relative">
-      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-coffee-dark py-2 sm:py-3 md:py-4">{heading}</h2>
+      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-coffee-dark py-2 sm:py-3 md:py-4">
+        {heading}
+      </h2>
       <div className="relative">
         {/* Nút cuộn trái */}
         <button
@@ -153,13 +159,15 @@ const HorizontalCardProduct = ({ category, heading }) => {
             ? loadingList.map((_, index) => (
                 <div
                   key={`loadingProduct-${index}`}
-                  className="bg-gray-200 p-6 rounded-lg shadow-md flex w-full min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px] h-44 skeleton-loading"
+                  className="bg-gray-200 p-6 rounded-lg shadow-md flex w-full min-w-[340px] md:min-w-[380px] max-w-[340px] md:max-w-[380px] h-44 skeleton-loading"
                 >
-                  <div className="h-full p-4 min-w-[120px] md:min-w-[145px] bg-gray-300 rounded-md"></div>
+                  <div className="h-full p-4 min-w-[160px] md:min-w-[185px] bg-gray-500 rounded-md"></div>
                   <div className="mx-3">
-                    <p className="bg-gray-300 w-32 h-4 mb-2 rounded"></p>
+                    <p className="bg-gray-600 w-32 h-4 mb-2 rounded"></p>
                     <p className="bg-gray-300 w-20 h-4 mb-2 rounded"></p>
-                    <p className="bg-gray-300 w-24 h-4 mb-2 rounded"></p>
+                    <p className="bg-gray-600 w-36 h-4 mb-2 rounded"></p>
+                    <p className="bg-gray-300 w-32 h-4 mb-2 rounded"></p>
+                    <p className="bg-gray-700 w-36 h-4 mb-2 rounded"></p>
                   </div>
                 </div>
               ))

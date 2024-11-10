@@ -54,7 +54,7 @@ function SearchTableHorizontal(props) {
           Tìm kiếm bàn phù hợp
         </h2>
       </div>
-      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0 bg-white p-4 sm:p-6 rounded-md shadow-lg">
+      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0 bg-white  dark:bg-gray-100  p-4 sm:p-6 rounded-md shadow-lg">
 
         <div className="flex flex-col w-full md:w-1/5">
           <label htmlFor="tableType" className="text-[#3b2c35] font-medium mb-1">
@@ -77,7 +77,7 @@ function SearchTableHorizontal(props) {
 
         <div className="flex flex-col w-full md:w-1/5">
           <label htmlFor="tableArea" className="text-[#3b2c35] font-medium mb-1">
-            Khu vực
+            Khu vực bàn
           </label>
           <select
             id="tableArea"
@@ -96,7 +96,7 @@ function SearchTableHorizontal(props) {
 
         <div className="flex flex-col w-full md:w-1/5">
           <label htmlFor="arrivalTime" className="text-[#3b2c35] font-medium mb-1">
-            Thời gian đến
+            Thời gian đến quán
           </label>
           <input
             id="arrivalTime"
@@ -104,13 +104,13 @@ function SearchTableHorizontal(props) {
             type="datetime-local"
             value={formData.arrivalTime}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#6f4e37]"
+            className="border bg-white  dark:bg-gray-100  border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#6f4e37]"
           />
         </div>
 
         <div className="flex flex-col w-full md:w-1/5">
           <label htmlFor="endTime" className="text-[#3b2c35] font-medium mb-1">
-            Thời gian về
+            Thời gian ra về dự tính
           </label>
           <input
             id="endTime"
@@ -118,12 +118,12 @@ function SearchTableHorizontal(props) {
             type="datetime-local"
             value={formData.endTime}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#6f4e37]"
+            className="border bg-white  dark:bg-gray-100  border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#6f4e37]"
           />
         </div>
 
         <div className="w-full md:w-auto">
-            <label htmlFor="" className="text-white">Tìm kiếm</label>
+            <label htmlFor="" className="text-white dark:text-gray-100">Tìm kiếm</label>
           <button
             onClick={searchHandle}
             className="flex items-center justify-center bg-[#6f4e37] text-white font-bold py-2 px-4 rounded-md w-full md:w-auto hover:bg-[#5a392e] hover:scale-105 hover:shadow-lg transition duration-200"

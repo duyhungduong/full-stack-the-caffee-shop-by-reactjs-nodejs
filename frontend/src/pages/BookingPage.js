@@ -43,7 +43,7 @@ const BookingPage = () => {
         {data.map((item, index) => (
           <div
             key={item.userId + index}
-            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            className="bg-white dark:bg-gray-100  dark:border  rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
             <img
               src={item?.tableId?.tableImage[0]}

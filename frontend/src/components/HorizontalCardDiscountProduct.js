@@ -18,7 +18,7 @@ const ProductCard = ({ product, userRole, handleAction, isFavorite }) => {
   return (
     <Link
       to={`product/${product._id}`}
-      className="relative w-full min-w-[380px] md:min-w-[420px] max-w-[380px] md:max-w-[420px] h-44 bg-white rounded-lg hover:shadow-md shadow-slate-600 flex transition-transform duration-300 transform hover:scale-105 hover:z-30 m-2 mb-3"
+      className="relative w-full min-w-[380px] md:min-w-[420px] max-w-[380px] md:max-w-[420px] h-44 bg-white dark:bg-gray-100  dark:border  rounded-lg hover:shadow-md shadow-slate-600 flex transition-transform duration-300 transform hover:scale-105 hover:z-30 m-2 mb-3"
       style={{ overflow: "visible", zIndex: 1 }} // Đảm bảo không bị ẩn
     >
       <div className="bg-coffee-background h-full p-4 w-1/2 min-w-[130px] md:min-w-[150px] rounded-l-lg">
@@ -103,13 +103,15 @@ const HorizontalCardDiscountProduct = ({ heading }) => {
       const dataResponse = await categoryProduct.json();
       if (dataResponse.success) {
         console.log("dataResponse", dataResponse);
+        setLoading(false);
+        setData(dataResponse?.data); 
       }
       if (dataResponse.error) {
         console.log("error");
       }
-      setData(dataResponse?.data);
-    } finally {
-      setLoading(false);
+       
+    } catch(error) {
+      console.error("Error fetching data", error);
     }
   };
 
@@ -175,15 +177,17 @@ const HorizontalCardDiscountProduct = ({ heading }) => {
         >
           {loading
             ? loadingList.map((_, index) => (
-                <div
+              <div
                   key={`loadingProduct-${index}`}
-                  className="bg-gray-200 p-6 rounded-lg shadow-md flex w-full min-w-[380px] md:min-w-[420px] max-w-[380px] md:max-w-[420px] h-44 skeleton-loading"
+                  className="bg-gray-200 p-6 mx-1 rounded-lg shadow-md flex w-full min-w-[340px] md:min-w-[380px] max-w-[340px] md:max-w-[380px] h-44 skeleton-loading"
                 >
-                  <div className="h-full p-4 min-w-[120px] md:min-w-[145px] bg-gray-300 rounded-md"></div>
+                  <div className="h-full p-4 min-w-[160px] md:min-w-[185px] bg-gray-500 rounded-md"></div>
                   <div className="mx-3">
-                    <p className="bg-gray-300 w-32 h-4 mb-2 rounded"></p>
+                    <p className="bg-gray-600 w-32 h-4 mb-2 rounded"></p>
                     <p className="bg-gray-300 w-20 h-4 mb-2 rounded"></p>
-                    <p className="bg-gray-300 w-24 h-4 mb-2 rounded"></p>
+                    <p className="bg-gray-600 w-36 h-4 mb-2 rounded"></p>
+                    <p className="bg-gray-300 w-32 h-4 mb-2 rounded"></p>
+                    <p className="bg-gray-700 w-36 h-4 mb-2 rounded"></p>
                   </div>
                 </div>
               ))

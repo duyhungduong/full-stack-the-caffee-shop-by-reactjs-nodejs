@@ -13,7 +13,7 @@ const Success = () => {
   };
 
   return (
-    <div className="bg-white  max-w-2xl mx-auto flex justify-center items-center flex-col p-4 mt-10 rounded shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+    <div className="bg-white dark:bg-gray-100 dark:border  max-w-2xl mx-auto flex justify-center items-center flex-col p-4 mt-10 rounded shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
       
       <img src={SuccessImage} alt="" className="" />
       <p className="text-green-600 font-bold text-xl">Payment Successfully</p>
