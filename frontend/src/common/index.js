@@ -154,6 +154,10 @@ const SummaryApi = {
     url: `${backendDomin}/api/booking`,
     method: "post",
   },
+  creatBookingTable : {
+    url: `${backendDomin}/api/create-booking`,
+    method: "post",
+  },
   orderProductCount: {
     url: `${backendDomin}/api/countOrderProduct`,
     method: "get",

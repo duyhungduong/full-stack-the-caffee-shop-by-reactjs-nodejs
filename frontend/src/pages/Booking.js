@@ -123,86 +123,77 @@ const Booking = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div>
-          <h2 className="text-4xl font-bold text-coffee-brown">Booking</h2>
-          <p className="text-gray-600 mt-2">
-            Please fill out the form below to booking a table.
-          </p>
-          <p className="text-gray-800 mt-2">
-            E-mail:{" "}
-            <a
-              href="mailto:hungb2103500@student.ctu.edu.vn"
-              className="text-blue-600"
-            >
-              hungb2103500@student.ctu.edu.vn
-            </a>
-          </p>
-          <h3 className="text-xl font-bold text-gray-800 mb-2">Address:</h3>
-          <img
-            src={image0}
-            alt="Location map"
-            className="w-full h-80 object-cover rounded-lg mb-4"
-          />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8">
+        {/* Phần bên trái: Google Maps và thông tin địa chỉ */}
+        <div className="bg-white shadow-lg rounded-xl overflow-hidden">
+          <div className="p-6">
+            <h2 className="text-3xl font-bold text-coffee-brown mb-4">
+              Booking
+            </h2>
+            <p className="text-gray-600">
+              Please fill out the form below to book a table.
+            </p>
+            <p className="text-gray-800 mt-2">
+              E-mail contact :{" "}
+              <a
+                href="mailto:hungb2103500@student.ctu.edu.vn"
+                className="text-blue-600 underline"
+              >
+                hungb2103500@student.ctu.edu.vn
+              </a>
+            </p>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mt-6">
+              Address:
+            </h3>
+            <img
+              src={image0}
+              alt="Location map"
+              className="w-full h-72 object-cover rounded-lg mt-4 shadow-md"
+            />
+
+            {/* Thiết kế iframe với border radius và shadow */}
+            <div className="mt-6">
+              <iframe
+                src="https://maps.google.com/maps?width=1610&amp;height=510&amp;hl=en&amp;q=Trường Đại Học Cần Thơ&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                className="w-full h-80 rounded-lg shadow-lg"
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <form
-            className="bg-gray-100 p-6 rounded-lg shadow-lg"
-            onSubmit={handleSubmit}
-          >
-            <div className="mb-4">
-              <label
-                htmlFor="tableId"
-                className="text-sm font-medium text-gray-700 mb-2 hidden"
-              >
-                Table ID
-              </label>
-              <input
-                type="text"
-                id="tableId"
-                name="tableId"
-                value={tableData?._id}
-                readOnly
-                className="w-full p-3 border border-gray-300 rounded-md bg-gray-200 cursor-not-allowed hidden"
-              />
-            </div>
+        {/* Phần bên phải: Form đặt bàn */}
+        <div className="bg-gray-100 p-8 rounded-xl shadow-lg">
+          <form onSubmit={handleSubmit}>
+            <h2 className="text-2xl font-bold text-coffee-brown mb-6 text-center">
+              Book a Table
+            </h2>
 
-            <div className="mb-4">
-              <label
-                htmlFor="userId"
-                className="hidden text-sm font-medium text-gray-700 mb-2"
-              >
-                User ID
-              </label>
-              <input
-                type="text"
-                id="userId"
-                name="userId"
-                value={user?._id}
-                readOnly
-                className="w-full p-3 border border-gray-300 rounded-md bg-gray-200 cursor-not-allowed hidden"
-              />
-            </div>
-            <div>
+            {/* Thông tin khách hàng */}
+            <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Thông tin khách Hàng
+                Thông tin khách hàng
               </label>
-              <div className="w-full p-3 border border-gray-300 rounded-md bg-gray-200 cursor-not-allowed">
+              <div className="w-full p-3 border border-gray-300 rounded-lg bg-gray-200">
                 {user?.name} - {user?.email} - {user?.phone}
               </div>
             </div>
-            <div>
+
+            {/* Thông tin bàn */}
+            <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Thông tin bàn
               </label>
-              <div className="w-full p-3 border border-gray-300 rounded-md bg-gray-200 cursor-not-allowed">
+              <div className="w-full p-3 border border-gray-300 rounded-lg bg-gray-200">
                 Bàn số {tableData?.tableNumber} - {tableData?.tableArea} -{" "}
                 {tableData?.tableType}
               </div>
             </div>
 
-            <div className="mb-4">
+            {/* Thời gian đến */}
+            <div className="mb-6">
               <label
                 htmlFor="arrivalTime"
                 className="block text-sm font-medium text-gray-700 mb-2"
@@ -215,12 +206,13 @@ const Booking = () => {
                 name="arrivalTime"
                 value={formData.arrivalTime}
                 onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-md"
+                className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-coffee-brown"
                 required
               />
             </div>
 
-            <div className="mb-4">
+            {/* Thời gian kết thúc */}
+            <div className="mb-6">
               <label
                 htmlFor="endTime"
                 className="block text-sm font-medium text-gray-700 mb-2"
@@ -233,19 +225,24 @@ const Booking = () => {
                 name="endTime"
                 value={formData.endTime}
                 onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-md"
+                className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-coffee-brown"
               />
             </div>
 
-            <div className="mb-4">
+            {/* Hình ảnh bàn */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Table Image
+              </label>
               <img
                 src={tableData?.tableImage[0]}
                 alt="Table"
-                className="w-full h-80 object-cover rounded-lg mb-4"
+                className="w-full h-60 object-cover rounded-lg shadow-md"
               />
             </div>
 
-            <div className="mb-4">
+            {/* Ghi chú */}
+            <div className="mb-6">
               <label
                 htmlFor="notes"
                 className="block text-sm font-medium text-gray-700 mb-2"
@@ -257,16 +254,17 @@ const Booking = () => {
                 name="notes"
                 value={formData.notes}
                 onChange={handleChange}
-                className="w-full h-32 p-3 border border-gray-300 resize-none rounded-md"
+                className="w-full h-32 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-coffee-brown resize-none"
                 placeholder="Add any additional notes"
               ></textarea>
             </div>
 
+            {/* Nút Submit */}
             <button
               type="submit"
-              className="w-full bg-coffee-brown text-white py-3 rounded-md hover:bg-opacity-90 transition-colors"
+              className="w-full bg-coffee-brown text-white py-4 rounded-lg font-semibold hover:bg-opacity-90 transition duration-300"
             >
-              Submit
+              Confirm Booking
             </button>
           </form>
         </div>

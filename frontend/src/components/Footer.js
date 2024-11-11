@@ -1,10 +1,8 @@
 import React from "react";
-
+import { Link } from "react-router-dom"; // Sử dụng nếu bạn dùng React Router
 import caffee from "../assest/logocaffee.png";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaGithub } from "react-icons/fa";
 import { SiInstagram } from "react-icons/si";
-import { FaTwitter } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
 import { BiSolidToTop } from "react-icons/bi";
 import scrollTop from "../helper/scrollTop";
 
@@ -19,26 +17,76 @@ const Footer = () => {
             alt="Coffee Shop Logo"
             className="w-auto h-auto max-w-[150px] max-h-[60px] object-contain"
           />
-          <p className="text-sm max-w-xs">
+          <p className="text-sm max-w-xs mt-4">
             Welcome to CaFFEE, your ultimate coffee destination. Enjoy the
             finest brews and cozy vibes!
           </p>
-
-          <p className="text-sm max-w-xs">
+          <p className="text-sm max-w-xs mt-2">
             Địa chỉ: Phòng 702, Tầng 7, Tòa nhà Central Plaza, số 17 Lê Duẩn,
             phường Bến Nghé, quận 1, Hồ Chí Minh.
           </p>
         </div>
 
-        {/* Contact Info */}
+        {/* Navigation Links */}
         <div className="text-center md:text-left">
-          <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
-          <p>350 Dong Van Cong Street, An Thoi, Binh Thuy, Can Tho City</p>
-          <p>Email: hungb2103500@student.ctu.edu.vn</p>
-          <p className="">Trụ sở chính: Công ty Cổ Phần Caffee Heritage
-          </p>
-          <p>ĐKKD: 0316 871719 do sở KHĐT TPHCM cấp lần đầu ngày 21/05/2021</p>
-          <p className="">Hotline Đặt hàng: 1800 6779</p>
+          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <nav className="flex flex-col space-y-2">
+            <div>
+              <Link to="/" className="hover:text-coffee-brown transition-colors">
+              Home
+            </Link>
+            </div>
+            <div className=" flex gap-4">
+              <Link
+              to="/about"
+              className="hover:text-coffee-brown transition-colors"
+            >
+              About Us
+            </Link>
+            <Link  className="hover:text-coffee-brown transition-colors">
+              Cart
+            </Link>
+            <Link className="hover:text-coffee-brown transition-colors">
+              Favorite
+            </Link>
+            <Link className="hover:text-coffee-brown transition-colors">
+              Notifacaion
+            </Link>
+            </div>
+            <div className="flex gap-4">
+            <Link  className="hover:text-coffee-brown transition-colors">
+              Products
+            </Link>
+            <Link  className="hover:text-coffee-brown transition-colors">
+              Category
+            </Link>
+              <Link
+              to="/menu"
+              className="hover:text-coffee-brown transition-colors"
+            >
+              Our Menu
+            </Link>
+            </div>
+            
+            <Link
+              to="/contact"
+              className="hover:text-coffee-brown transition-colors"
+            >
+              Contact Us
+            </Link>
+            <div className="flex gap-4">
+            <Link
+              to="/booking"
+              className="hover:text-coffee-brown transition-colors"
+            >
+              Book a Table
+            </Link>
+            <Link  className="hover:text-coffee-brown transition-colors">
+              Tables
+            </Link>
+            </div>
+            
+          </nav>
         </div>
 
         {/* Social Media Links */}
@@ -48,57 +96,32 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebook
-              // src="/path-to-your-icons/facebook-icon.png"
-              // alt="Facebook"
-              className="w-6 h-6 hover:scale-110 transition-all transform"
-            />
+            <FaFacebook className="w-6 h-6 hover:scale-110 transition-transform" />
           </a>
           <a
             href="https://www.instagram.com/duongduyhwng"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiInstagram
-              // src="/path-to-your-icons/instagram-icon.png"
-              alt="Instagram"
-              className="w-6 h-6 hover:scale-110 transition-all transform"
-            />
+            <SiInstagram className="w-6 h-6 hover:scale-110 transition-transform" />
           </a>
           <a
             href="https://github.com/duyhungduong"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub
-              src="/path-to-your-icons/twitter-icon.png"
-              alt="Github"
-              className="w-6 h-6 hover:scale-110 transition-all transform"
-            />
+            <FaGithub className="w-6 h-6 hover:scale-110 transition-transform" />
           </a>
           <a
             href="https://x.com/duongduyhwng"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaTwitter
-              src="/path-to-your-icons/twitter-icon.png"
-              alt="Twitter"
-              className="w-6 h-6 hover:scale-110 transition-all transform"
-            />
+            <FaTwitter className="w-6 h-6 hover:scale-110 transition-transform" />
           </a>
-          <div
-            href="https://x.com/duongduyhwng"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <BiSolidToTop
-              src="/path-to-your-icons/twitter-icon.png"
-              alt="Twitter"
-              className="w-6 h-6 hover:scale-110 transition-all transform"
-              onClick={scrollTop}
-            />
-          </div>
+          <button onClick={scrollTop}>
+            <BiSolidToTop className="w-6 h-6 hover:scale-110 transition-transform" />
+          </button>
         </div>
       </div>
 

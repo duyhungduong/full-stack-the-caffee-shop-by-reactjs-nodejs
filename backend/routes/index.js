@@ -58,6 +58,7 @@ const userLoginGoogleController = require("../controller/User/userLoginGoogle");
 const updateUserInformationController = require("../controller/User/updateUserInformation");
 const searchTableController = require("../controller/Table/searchTableController");
 const userLoginFBController = require("../controller/User/userLoginFB");
+const { createBooking } = require("../controller/Booking/sendBookingConfirmationEmail");
 
 router.post("/signup", userSignUpController);
 router.post("/signin", userSignInController);
@@ -126,6 +127,7 @@ router.post("/filter-table", filterTableController);
 
 //Booking and Booking list
 router.post("/booking", addToBookingTableController);
+router.post("/create-booking", createBooking)
 router.get("/booking-list", authToken, bookingController);
 router.post("/change-table-status", authToken, changeTableStatus);
 router.get("/all-booking", authToken, allBookingController);

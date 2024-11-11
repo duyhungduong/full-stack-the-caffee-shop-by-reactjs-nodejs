@@ -1,17 +1,19 @@
 const bookingTableModel = require("../../models/bookingTable");
+const tableModel = require("../../models/tableModel");
+const userModel = require("../../models/userModel");
+const { sendBookingConfirmationEmail } = require("../../helper/emailHelper");
 
 async function addToBookingTableController(req, res) {
   try {
-    const { tableId, arrivalTime, endTime, notes } = req.body; // Lấy các thông tin từ body
-    const currentUser = req.body.userId // Lấy userId từ token đã xác thực
+    const { tableId, arrivalTime, endTime, notes } = req.body; // Extract details from the body
+    const currentUser = req.body.userId; // Get userId from the verified token
 
-    // Kiểm tra xem bàn đã được đặt bởi user này chưa
+    // Check if the table is already booked by this user at the same time
     const isTableAvailable = await bookingTableModel.findOne({
       tableId,
       userId: currentUser,
-      arrivalTime
+      arrivalTime,
     });
-
 
     if (isTableAvailable) {
       return res.status(400).json({
@@ -20,24 +22,31 @@ async function addToBookingTableController(req, res) {
         error: true,
       });
     }
-    
-    if (!arrivalTime) {
-        throw new Error("Please provide arrivalTime");
-    }
-    
 
-    // Tạo payload với thông tin từ request
+    if (!arrivalTime) {
+      throw new Error("Please provide arrivalTime");
+    }
+
+    // Create payload with the request information
     const payload = {
-      tableId : tableId,
+      tableId,
       userId: currentUser,
-      arrivalTime: arrivalTime,
-      endTime: endTime,
-      notes: notes,
+      arrivalTime,
+      endTime,
+      notes,
     };
 
-    console.log("payload booking", payload)
+    const user = await userModel.findById(payload.userId); // Find user for email details
+    const table = await tableModel.findById(payload.tableId); // Find table for table details
 
-    // Lưu booking mới
+    // Send booking confirmation email
+    await sendBookingConfirmationEmail(user.email, user.name, table.tableImage[0], {
+      arrivalTime: payload.arrivalTime,
+      endTime: payload.endTime,
+      tableInfo: `Table ${table.tableNumber} - ${table.tableArea} - ${table.tableType}`,
+    });
+
+    // Save the new booking
     const newAddToBooking = new bookingTableModel(payload);
     const savedBooking = await newAddToBooking.save();
 
