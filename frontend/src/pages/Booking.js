@@ -159,6 +159,7 @@ const Booking = () => {
                 className="w-full h-80 rounded-lg shadow-lg"
                 frameBorder="0"
                 allowFullScreen
+                referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
