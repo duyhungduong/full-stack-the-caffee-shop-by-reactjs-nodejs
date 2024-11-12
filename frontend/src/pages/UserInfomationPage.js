@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 import Context from "../context";
+import scrollTop from "../helper/scrollTop";
 
 const UserInfomationPage = () => {
   // Truy cập vào state trong Redux store để lấy thông tin user
@@ -62,6 +63,7 @@ const UserInfomationPage = () => {
   };
 
   useEffect(() => {
+    scrollTop()
     if (!user || !Object.keys(user).length) {
       fetchUserDetails();
     }

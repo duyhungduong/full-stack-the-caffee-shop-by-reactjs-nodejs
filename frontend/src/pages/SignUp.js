@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import loginIcons from "../assest/signin.gif";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
@@ -9,6 +9,8 @@ import bookBg from "../assest/book-bg.jpg";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 // import { toast } from "react-toastify";
+
+import scrollTop from "../helper/scrollTop";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -72,6 +74,9 @@ const SignUp = () => {
       };
     });
   };
+  useEffect(()=>{
+    scrollTop()
+  })
 
   return (
     <section

@@ -13,6 +13,15 @@ import Context from "../context";
 import { MdFavorite } from "react-icons/md";
 import { FaBell } from "react-icons/fa6";
 import { TbBellRingingFilled } from "react-icons/tb";
+import {
+  FaUser,
+  FaShoppingCart,
+  FaConciergeBell,
+  FaHeart,
+  FaSignOutAlt,
+  FaUserCog,
+} from "react-icons/fa";
+import { BsFillPeopleFill, BsFillFileEarmarkTextFill } from "react-icons/bs";
 
 const Header = () => {
   const user = useSelector((state) => state?.user?.user); // Them "? " neu ko co san user thi se thanh loi~
@@ -137,15 +146,18 @@ const Header = () => {
               )}
             </div>
             {user?._id && menuDisplay && (
-              <div className="absolute bg-white bottom-0 top-11 w-48 h-fit p-3 shadow-lg rounded-lg">
-                <nav className="grid gap-2">
+              <div className="absolute bg-white bottom-0 top-11 right-0 w-52 md:w-72 h-fit p-3 shadow-lg rounded-lg">
+                <nav className="grid gap-3">
                   {user?.role === ROLE.ADMIN && (
                     <Link
                       to={"/admin-panel/dashboard"}
-                      className="block text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
+                      className="block w-full text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
                       onClick={() => setMenuDisplay((preve) => !preve)}
                     >
-                      Admin Panel
+                      <FaUserCog className="" /> Admin Panel
+                      <span className="bg-amber-900 text-white w-2 h-2 text-xs font-bold mx-2 p-1 rounded-full">
+                        8
+                      </span>
                     </Link>
                   )}
                   {user?.role !== ROLE.GENERAL && (
@@ -154,7 +166,7 @@ const Header = () => {
                       className="block text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
                       onClick={() => setMenuDisplay((preve) => !preve)}
                     >
-                      Order
+                      <FaShoppingCart /> Order
                       <span className="bg-amber-900 text-white text-xs font-bold mx-2 p-1 rounded-full">
                         {context?.orderCount}
                       </span>
@@ -166,7 +178,7 @@ const Header = () => {
                       className="block text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
                       onClick={() => setMenuDisplay((preve) => !preve)}
                     >
-                      Booking List
+                      <FaConciergeBell /> Booking List
                       <span className="bg-amber-900 text-white text-xs font-bold mx-2 p-1 rounded-full">
                         {context?.bookingCount}
                       </span>
@@ -179,9 +191,9 @@ const Header = () => {
                       className="block text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
                       onClick={() => setMenuDisplay((preve) => !preve)}
                     >
-                      New Message 
+                      <FaBell /> New Message
                       <span className="bg-amber-900 text-white text-xs font-bold mx-2 p-1 rounded-full">
-                      {context?.unreadMessage}
+                        {context?.unreadMessage}
                       </span>
                     </Link>
                   )}
@@ -192,9 +204,9 @@ const Header = () => {
                       className="block text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
                       onClick={() => setMenuDisplay((preve) => !preve)}
                     >
-                      Favorite
+                      <FaHeart /> Favorite
                       <span className="bg-amber-900 text-white text-xs font-bold mx-2 p-1 rounded-full">
-                      {context?.favoriteProductCount}
+                        {context?.favoriteProductCount}
                       </span>
                     </Link>
                   )}
@@ -205,7 +217,7 @@ const Header = () => {
                       className="block text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
                       onClick={() => setMenuDisplay((preve) => !preve)}
                     >
-                      Thông tin tài khoản
+                      <BsFillPeopleFill /> Thông tin tài khoản
                     </Link>
                   )}
 
@@ -214,7 +226,7 @@ const Header = () => {
                       className="block text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
                       onClick={handleLogout}
                     >
-                      Đăng xuất
+                      <FaSignOutAlt /> Đăng xuất
                     </Link>
                   )}
                 </nav>
@@ -268,15 +280,14 @@ const Header = () => {
                             // size={20}
                           />
                         ) : (
-                          <FaBell 
-                          className=""
-                          // size={20} 
-
+                          <FaBell
+                            className=""
+                            // size={20}
                           />
                         )}
                       </span>
                       {context?.unreadMessage ? (
-                        <div className="bg-amber-900 text-white w-2 h-2 sm:w-4 sm:h-4 flex rounded-full p-2 sm:p-3 items-center justify-center absolute -top-2 -left-3">
+                        <div className="bg-amber-900 text-white w-2 h-2 sm:w-4 sm:h-4 flex rounded-full p-2 sm:p-2 items-center justify-center absolute -top-2 -left-3">
                           <p className="text-xs">{context?.unreadMessage}</p>
                         </div>
                       ) : (
@@ -288,7 +299,7 @@ const Header = () => {
                     <span className="">
                       <TiCoffee />
                     </span>
-                    <div className="bg-amber-900 text-white w-2 h-2 sm:w-4 sm:h-4 flex rounded-full p-2 sm:p-3 items-center justify-center absolute -top-2 -right-2">
+                    <div className="bg-amber-900 text-white w-2 h-2 sm:w-4 sm:h-4 flex rounded-full p-2 sm:p-2 items-center justify-center absolute -top-2 -right-2">
                       <p className="text-xs">{context?.cartProductCount}</p>
                     </div>
                   </Link>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import displayVNCurrency from "../helper/displayCurrency";
 import moment from "moment";
 import SummaryApi from "../common";
+import scrollTop from "../helper/scrollTop";
 
 const OrderPage = () => {
   const [data, setData] = useState([]);
@@ -19,6 +20,7 @@ const OrderPage = () => {
   };
 
   useEffect(() => {
+    scrollTop()
     fetchOrderDetails();
   }, []);
 

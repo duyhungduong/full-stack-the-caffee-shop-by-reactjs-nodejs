@@ -137,14 +137,14 @@ const HorizontalCardProduct = ({ category, heading }) => {
         {/* Nút cuộn trái */}
         <button
           onClick={scrollLeft}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 text-lg md:text-2xl bg-coffee-light shadow-lg rounded-full p-2 md:p-3 hover:z-20 transition-all hover:scale-110 hover:bg-coffee-brown text-white"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 text-lg md:text-2xl bg-coffee-light shadow-lg rounded-full p-2 md:p-3 z-10 hover:z-20 transition-all hover:scale-110 hover:bg-coffee-brown text-white"
         >
           <FaAngleLeft />
         </button>
 
         <button
           onClick={scrollRight}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 text-lg md:text-2xl bg-coffee-light shadow-lg rounded-full p-2 md:p-3 hover:z-20 transition-all hover:scale-110 hover:bg-coffee-brown text-white"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 text-lg md:text-2xl bg-coffee-light shadow-lg rounded-full p-2 md:p-3 z-10 hover:z-20 transition-all hover:scale-110 hover:bg-coffee-brown text-white"
         >
           <FaAngleRight />
         </button>

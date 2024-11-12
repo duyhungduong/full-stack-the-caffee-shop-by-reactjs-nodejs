@@ -10,6 +10,7 @@ const searchProduct = async(req,res)=>{
             $or: [
                 {productName: regex},
                 {category: regex},
+                { description: regex },
             ]
         })
 

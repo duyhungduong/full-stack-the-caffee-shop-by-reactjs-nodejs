@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SummaryApi from '../common'
 import VerticalCard from '../components/VerticalCard'
+import Spinner from "../helper/Spinner";
+import scrollTop from "../helper/scrollTop";
 
 const SearchProduct = () => {
     const query = useLocation()
@@ -37,7 +39,8 @@ const SearchProduct = () => {
 
       {
         data.length === 0 && !loading && (
-           <p className='bg-white text-lg text-center p-4'>No Data Found....</p>
+          <div>
+           <p className='bg-white text-lg text-center p-4'>No Data Found.... <Spinner/></p></div>
         )
       }
 

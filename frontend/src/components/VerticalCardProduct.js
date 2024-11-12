@@ -122,7 +122,7 @@ const VerticalCardProduct = ({ category, heading }) => {
                     <p className="capitalize text-slate-500">{product.category}</p>
                     {product?.sellingPrice !== product?.price && (
                       <p className="flex items-center font-serif justify-center bg-yellow-200 rounded-md p-1">
-                        <BiSolidDiscount className="mr-1" />
+                        <BiSolidDiscount className="mr-1" />Giảm giá {" "}
                         -{Math.round(((product.price - product.sellingPrice) / product.price) * 100)} %
                       </p>
                     )}

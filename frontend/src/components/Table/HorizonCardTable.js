@@ -154,13 +154,13 @@ const HorizonCardTable = ({ tableType, heading }) => {
                 ) : (
                   <div
                     // to={"product/" + table?._id}
-                    className="relative w-full min-w-[380px] md:min-w-[420px] max-w-[380px] md:max-w-[420px] h-48 bg-red-200 rounded-xl shadow-lg flex transition-transform duration-300 transform hover:scale-105 hover:z-20 m-2 cursor-not-allowed" // Sản phẩm nhỏ hơn một chút khi rê chuột vào
+                    className="relative w-full min-w-[380px] md:min-w-[420px] max-w-[380px] md:max-w-[420px] h-48 bg-orange-200 rounded-xl shadow-lg flex transition-transform duration-300 transform hover:scale-105 hover:z-20 m-2 cursor-not-allowed" // Sản phẩm nhỏ hơn một chút khi rê chuột vào
                     style={{ overflow: "visible", zIndex: 1 }}
                     key={
                       index + table?.tableNumber + table?.tableType + table?._id
                     }
                   >
-                    <div className="bg-red-100 h-full p-3 min-w-[140px] md:min-w-[165px] flex items-center justify-center">
+                    <div className="bg-orange-100 h-full p-3 min-w-[140px] md:min-w-[165px] flex items-center justify-center">
                       {table?.tableImage?.[0] && (
                         <img
                           className="object-scale-down h-full w-full  transition-transform hover:scale-110"

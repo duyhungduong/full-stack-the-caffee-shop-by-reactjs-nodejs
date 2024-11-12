@@ -1,10 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Sử dụng nếu bạn dùng React Router
+
 import caffee from "../assest/logocaffee.png";
-import { FaFacebook, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { SiInstagram } from "react-icons/si";
+import { FaTwitter } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { BiSolidToTop } from "react-icons/bi";
+import { FaYoutube } from "react-icons/fa";
+import { SiZalo } from "react-icons/si";
 import scrollTop from "../helper/scrollTop";
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -17,111 +22,105 @@ const Footer = () => {
             alt="Coffee Shop Logo"
             className="w-auto h-auto max-w-[150px] max-h-[60px] object-contain"
           />
-          <p className="text-sm max-w-xs mt-4">
+          <p className="text-sm max-w-xs mx-auto md:mx-0">
             Welcome to CaFFEE, your ultimate coffee destination. Enjoy the
             finest brews and cozy vibes!
           </p>
-          <p className="text-sm max-w-xs mt-2">
-            Địa chỉ: Phòng 702, Tầng 7, Tòa nhà Central Plaza, số 17 Lê Duẩn,
-            phường Bến Nghé, quận 1, Hồ Chí Minh.
+          <p className="text-sm max-w-xs mx-auto md:mx-0">
+            Address: Khu II, 3/2 Street, Xuan Khanh, Ninh Kieu, Can Tho, VN
           </p>
         </div>
 
-        {/* Navigation Links */}
+        {/* Contact Info */}
         <div className="text-center md:text-left">
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <nav className="flex flex-col space-y-2">
-            <div>
-              <Link to="/" className="hover:text-coffee-brown transition-colors">
-              Home
-            </Link>
-            </div>
-            <div className=" flex gap-4">
-              <Link
-              to="/about"
-              className="hover:text-coffee-brown transition-colors"
-            >
-              About Us
-            </Link>
-            <Link  className="hover:text-coffee-brown transition-colors">
-              Cart
-            </Link>
-            <Link className="hover:text-coffee-brown transition-colors">
-              Favorite
-            </Link>
-            <Link className="hover:text-coffee-brown transition-colors">
-              Notifacaion
-            </Link>
-            </div>
-            <div className="flex gap-4">
-            <Link  className="hover:text-coffee-brown transition-colors">
-              Products
-            </Link>
-            <Link  className="hover:text-coffee-brown transition-colors">
-              Category
-            </Link>
-              <Link
-              to="/menu"
-              className="hover:text-coffee-brown transition-colors"
-            >
-              Our Menu
-            </Link>
-            </div>
-            
-            <Link
-              to="/contact"
-              className="hover:text-coffee-brown transition-colors"
-            >
-              Contact Us
-            </Link>
-            <div className="flex gap-4">
-            <Link
-              to="/booking"
-              className="hover:text-coffee-brown transition-colors"
-            >
-              Book a Table
-            </Link>
-            <Link  className="hover:text-coffee-brown transition-colors">
-              Tables
-            </Link>
-            </div>
-            
-          </nav>
+          <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
+          <p>350 Dong Van Cong Street, An Thoi, Binh Thuy, Can Tho City</p>
+          <p>Email: hungb2103500@student.ctu.edu.vn</p>
+          <p className="">Trụ sở chính: Công ty Cổ Phần Caffee Heritage
+          </p>
+          <p>ĐKKD: 0316 871719 do sở KHĐT TPHCM cấp lần đầu ngày 17/10/2024</p>
+          <p className="">Hotline Đặt hàng: 1800 6779</p>
         </div>
 
         {/* Social Media Links */}
         <div className="flex space-x-6 justify-center md:justify-start">
           <a
-            href="https://www.facebook.com/ddh.duyhung"
+            href="https://facebook.com/CTUDHCT"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebook className="w-6 h-6 hover:scale-110 transition-transform" />
+            <FaFacebook
+              // src="/path-to-your-icons/facebook-icon.png"
+              // alt="Facebook"
+              className="w-6 h-6 hover:scale-110 transition-all transform"
+            />
+          </a>
+          <a
+            href="https://zalo.me/CTUDHCT"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SiZalo
+              // src="/path-to-your-icons/facebook-icon.png"
+              // alt="Facebook"
+              className="w-6 h-6 hover:scale-110 transition-all transform"
+            />
           </a>
           <a
             href="https://www.instagram.com/duongduyhwng"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiInstagram className="w-6 h-6 hover:scale-110 transition-transform" />
+            <SiInstagram
+              // src="/path-to-your-icons/instagram-icon.png"
+              alt="Instagram"
+              className="w-6 h-6 hover:scale-110 transition-all transform"
+            />
+          </a>
+          <a
+            href="https://www.youtube.com/CTUDHCT"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube 
+              // src="/path-to-your-icons/instagram-icon.png"
+              alt="Instagram"
+              className="w-6 h-6 hover:scale-110 transition-all transform"
+            />
           </a>
           <a
             href="https://github.com/duyhungduong"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub className="w-6 h-6 hover:scale-110 transition-transform" />
+            <FaGithub
+              src="/path-to-your-icons/twitter-icon.png"
+              alt="Github"
+              className="w-6 h-6 hover:scale-110 transition-all transform"
+            />
           </a>
           <a
             href="https://x.com/duongduyhwng"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaTwitter className="w-6 h-6 hover:scale-110 transition-transform" />
+            <FaTwitter
+              src="/path-to-your-icons/twitter-icon.png"
+              alt="Twitter"
+              className="w-6 h-6 hover:scale-110 transition-all transform"
+            />
           </a>
-          <button onClick={scrollTop}>
-            <BiSolidToTop className="w-6 h-6 hover:scale-110 transition-transform" />
-          </button>
+          <a
+            href="https://tiktok.com/@ctudhct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTiktok
+              src="/path-to-your-icons/twitter-icon.png"
+              alt="Twitter"
+              className="w-6 h-6 hover:scale-110 transition-all transform"
+            />
+          </a>
         </div>
       </div>
 

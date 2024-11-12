@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 import scrollTop from "../helper/scrollTop";
+import image1 from "../assest/logocaffee.png";
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -130,6 +131,7 @@ const Booking = () => {
             <h2 className="text-3xl font-bold text-coffee-brown mb-4">
               Booking
             </h2>
+            <img src={image1} alt="Caffee Link" className="w-auto h-auto max-w-[150px] max-h-[60px] items-center justify-center object-contain"/>
             <p className="text-gray-600">
               Please fill out the form below to book a table.
             </p>

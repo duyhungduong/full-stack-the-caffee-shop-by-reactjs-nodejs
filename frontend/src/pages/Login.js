@@ -12,6 +12,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import caffee from "../assest/logocaffee.png";
+import scrollTop from "../helper/scrollTop";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -98,6 +99,7 @@ const Login = () => {
   
 
   useEffect(() => {
+    scrollTop()
     // Initialize Facebook SDK
     window.fbAsyncInit = function () {
       window.FB.init({
