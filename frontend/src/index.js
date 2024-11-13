@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
-
+import '../src/i18n/i18n.ts'
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 

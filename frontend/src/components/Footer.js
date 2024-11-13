@@ -12,6 +12,10 @@ import scrollTop from "../helper/scrollTop";
 import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
+  const changeLanguage= (lng) => {
+
+  }
+
   return (
     <footer className="bg-coffee-background text-coffee-dark border-t-2 py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 px-4 md:px-0">
@@ -29,6 +33,7 @@ const Footer = () => {
           <p className="text-sm max-w-xs mx-auto md:mx-0">
             Address: Khu II, 3/2 Street, Xuan Khanh, Ninh Kieu, Can Tho, VN
           </p>
+          
         </div>
 
         {/* Contact Info */}
