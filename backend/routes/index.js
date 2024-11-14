@@ -59,6 +59,7 @@ const updateUserInformationController = require("../controller/User/updateUserIn
 const searchTableController = require("../controller/Table/searchTableController");
 const userLoginFBController = require("../controller/User/userLoginFB");
 const { createBooking } = require("../controller/Booking/sendBookingConfirmationEmail");
+const getTopFavoritedProducts = require("../controller/Product/getTopFavoritedProducts");
 
 router.post("/signup", userSignUpController);
 router.post("/signin", userSignInController);
@@ -150,5 +151,8 @@ router.post("/auth/facebook", userLoginFBController)
 
 //search table
 router.post("/get-search-table", searchTableController)
+
+//TopFavoritedProduct
+router.get("/top-favorited-product", getTopFavoritedProducts)
 
 module.exports = router;

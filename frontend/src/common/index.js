@@ -226,6 +226,10 @@ const SummaryApi = {
     url: `${backendDomin}/api/auth/facebook`,
     method: "post",
   },
+  getTopFavoritedProduct : {
+    url: `${backendDomin}/api/top-favorited-product`,
+    method: "get",
+  },
 
 };
 

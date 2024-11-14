@@ -21,6 +21,8 @@ module.exports = {
       fontFamily: {
         serif: ['Merriweather', 'serif'],
         sans: ['Poppins', 'sans-serif'],
+        pacifico: ['Pacifico', 'cursive'],
+        greatVibes: ['Great Vibes', 'cursive'],
       },
     },
   },

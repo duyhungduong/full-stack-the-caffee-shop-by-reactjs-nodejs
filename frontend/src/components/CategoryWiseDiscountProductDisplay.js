@@ -10,9 +10,10 @@ import { useSelector } from "react-redux";
 import ROLE from "../common/role";
 import { MdFavorite } from "react-icons/md";
 import addToFavorite from "../helper/addToFavorite";
+import SummaryApi from "../common";
 import { BiSolidDiscount } from "react-icons/bi";
 
-const CategoryWiseProductDisplay = ({ category, heading }) => {
+const CategoryWiseDiscountProductDisplay = ({ heading }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const loadingList = new Array(20).fill(null);
@@ -31,22 +32,31 @@ const CategoryWiseProductDisplay = ({ category, heading }) => {
   };
 
   const fetchData = useCallback(async () => {
+    setLoading(true);
     try {
-      setLoading(true);
-      const categoryProduct = await fetchCategoryWiseProduct(category);
-
-      setLoading(false);
-      setData(categoryProduct?.data);
+      const categoryProduct = await fetch(SummaryApi.getDiscountProduct.url, {
+        method: SummaryApi.getDiscountProduct.method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const dataResponse = await categoryProduct.json();
+      if (dataResponse.success) {
+        console.log("dataResponse", dataResponse);
+        setLoading(false);
+        setData(dataResponse?.data);
+      }
+      if (dataResponse.error) {
+        console.log("error");
+      }
     } catch (error) {
-      setLoading(false);
       console.error("Error fetching data", error);
     }
-  }, [category]);
+  }, []);
 
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-
   return (
     <div className="container mx-auto px-4 my-4">
       <h2 className="text-lg font-semibold py-4">{heading}</h2>
@@ -144,4 +154,4 @@ const CategoryWiseProductDisplay = ({ category, heading }) => {
   );
 };
 
-export default CategoryWiseProductDisplay;
+export default CategoryWiseDiscountProductDisplay;

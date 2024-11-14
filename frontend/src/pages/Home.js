@@ -10,6 +10,7 @@ import HorizontalCardDiscountProduct from "../components/HorizontalCardDiscountP
 import SearchTableHorizontal from "../components/Table/SearchTableHorizontal";
 import VerticalTableCard from "../components/Table/VerticalTableCard";
 import VideoBackground from "../components/VideoBackground";
+import WelcomeBanner from "../components/WelcomeBanner";
 
 const Home = () => {
   const [dataSearch, setDataSearch] = useState([]);
@@ -20,6 +21,29 @@ const Home = () => {
   return (
     <div>
       <VideoBackground/>
+      <WelcomeBanner 
+        heading="Welcome to Caffee Shop"
+        paragraphs={[
+        'Cảm nhận hương vị cà phê đậm đà.',
+        'Thưởng thức không gian thư giãn.',
+        'Caffee Shop - Nơi đam mê bắt đầu!',
+        'Khu 2, 3/2 Street, Xuan Khanh, Ninh Kieu',
+        'Consensus - Devotion - Quality - Innovation',
+        'Dont tell people your plans. Show them your results.',
+        'Dont be so humble you are not that great',
+        'You miss 100% of the shots you dont take.',
+        'What comes easy wont last, what last wont come easy.',
+        'Take Bold risks - Elon Musk',
+        'Obsess over Customers - Jeff Bezos',
+        'Say yes, Then Learn - Richard Branson',
+        'Build Relentlessly - Diane Hendricks',
+        'Work like you are Broke - Mark Cuban',
+        'Learn from Failures - Bill Gates',
+        'Embrace Rejection - Sarah Blakely',
+        'Be the Change - Mahatma Gandhi',
+        'Think BIG - Larry Page'
+      ]}
+      />
       <CategoryList />
       <BannerProduct />
       <HorizontalCardDiscountProduct

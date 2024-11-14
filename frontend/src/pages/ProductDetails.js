@@ -14,6 +14,8 @@ import ROLE from "../common/role";
 import addToFavorite from "../helper/addToFavorite";
 import { BiSolidDiscount } from "react-icons/bi";
 import scrollTop from "../helper/scrollTop";
+import CategoryWiseDiscountProductDisplay from "../components/CategoryWiseDiscountProductDisplay";
+import CategoryWiseTopFavoritedProductDisplay from "../components/CategoryWiseTopFavoritedProductDisplay";
 
 const ProductDetails = () => {
   const [data, setData] = useState({
@@ -313,9 +315,20 @@ const ProductDetails = () => {
         {data.category && (
           <CategoryWiseProductDisplay
             category={data?.category}
-            heading={"Recommended Product"}
+            heading={"Những sản phẩm cùng phân loại - Recommended Product"}
           />
         )}
+        {
+          data.category && (
+            <CategoryWiseTopFavoritedProductDisplay heading={"Có thể bạn cũng thích - Những sản phẩm có nhiều lượt yêu thích nhất quán"}/>
+          )
+        }
+        {
+          data.category && (
+            <CategoryWiseDiscountProductDisplay heading={"Những sản phẩm đang được giảm giá sâu tại cửa hàng - Sale up to 45% - Giá ưu đãi, trải nghiệm cho khách hàng"}/>
+          )
+        }
+        
       </div>
     </div>
   );
