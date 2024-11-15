@@ -60,7 +60,7 @@ const CategoryWiseDiscountProductDisplay = ({ heading }) => {
   return (
     <div className="container mx-auto px-4 my-4">
       <h2 className="text-lg font-semibold py-4">{heading}</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {loading
           ? loadingList.map((_, index) => (
               <div
@@ -118,6 +118,9 @@ const CategoryWiseDiscountProductDisplay = ({ heading }) => {
                       <div>
                         <p className="text-green-600 font-serif font-medium">
                           {displayVNCurrency(product?.sellingPrice)}
+                        </p>
+                        <p className="text-white dark:text-gray-100  line-through">
+                          {displayVNCurrency(product?.price)}
                         </p>
                       </div>
                     ) : (
