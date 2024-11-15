@@ -27,6 +27,7 @@ const CategoryWiseTopFavoritedProductDisplay = ({ heading }) => {
 
   const handleAddToFavorite = async (e, id) => {
     await addToFavorite(e, id);
+    await fetchData();
     fetchUserAddToFavorite();
   };
 
@@ -94,7 +95,9 @@ const CategoryWiseTopFavoritedProductDisplay = ({ heading }) => {
                       {product.productDetails.productName}
                     </h2>
                     <p className="text-base items-center gap-1 transition-colors cursor-pointer">
-                      <MdFavorite className="text-red-500 hover:scale-125 duration-200 ease-in-out" />
+                      <MdFavorite className="text-red-500 hover:scale-125 duration-200 ease-in-out" 
+                        onClick={(e) => handleAddToFavorite(e, product.productDetails._id)}
+                      />
                     </p>
                   </div>
                   <div className="flex items-center justify-between">
@@ -162,14 +165,14 @@ const CategoryWiseTopFavoritedProductDisplay = ({ heading }) => {
                   {user?.role === ROLE.GENERAL ? (
                     <button
                       className="mt-2 text-sm flex text-coffee-dark items-center gap-2 px-3 py-1 bg-gradient-to-r from-coffee-beige to-coffee-light  rounded-lg transition-all hover:from-pastel-teal hover:to-pastel-blue-dark"
-                      onClick={(e) => handleAddToFavorite(e, product.productId)}
+                      onClick={(e) => handleAddToFavorite(e, product.productDetails._id)}
                     >
                       <MdFavorite /> Favorite
                     </button>
                   ) : (
                     <button
                       className="mt-2 text-sm flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-coffee-beige to-coffee-light text-coffee-dark rounded-lg transition-all hover:from-pastel-teal hover:to-pastel-blue-dark"
-                      onClick={(e) => handleAddToCart(e, product.productId)}
+                      onClick={(e) => handleAddToCart(e, product.productDetails._id)}
                     >
                       <TbShoppingCartFilled /> Add to Cart
                     </button>

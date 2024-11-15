@@ -49,24 +49,20 @@ const Home = () => {
       <HorizontalCardDiscountProduct
         heading={"Chương trình Siêu Sale từ 15 đến 45%"}
       />
-      <VerticalCardProduct category={"americano"} heading={"Matcha for life"} />
-      <HorizontalCardProduct category={"espresso"} heading={"espresso"} />
-      <HorizontalCardProduct category={"americano"} heading={"americano"} />
-      <HorizontalCardProduct category={"latte"} heading={"Enjoy Latte"} />
-      <HorizontalCardProduct category={"coldbrew"} heading={"coldbrew"} />
-      <HorizontalCardProduct category={"matcha"} heading={"Enjoy Matcha"} />
-      
-      <HorizontalCardProduct category={"cake"} heading={"Enjoy 1st Cake"} />
-      
-      <VerticalCardProduct
-        category={"cappuccino"}
-        heading={"Little Cappuccino"}
-      />
-      <VerticalCardProduct category={"cake"} heading={"Matcha for life"} />
-      <VerticalCardProduct category={"coldbrew"} heading={"Matcha for life"} />
-      <VerticalCardProduct category={"matcha"} heading={"Matcha for life"} />
-      <VerticalCardProduct category={"takeaway"} heading={"Take Away Coffee"} />
-      <VerticalCardProduct category={"icecoffee"} heading={"Super IceCoffee"} />
+      <VerticalCardProduct category={"americano"} heading={"Savor the Bold Flavors of a Classic Americano"} />
+      <HorizontalCardProduct category={"espresso"} heading={"Experience the Intensity of Bold Espresso"} />
+      <HorizontalCardProduct category={"americano"} heading={"Pure Americano for a Rich, Authentic Taste"} />
+      <HorizontalCardProduct category={"latte"} heading={"Indulge in the Creamy Smoothness of Our Latte Bliss"} />
+      <HorizontalCardProduct category={"coldbrew"} heading={"Refresh Yourself with a Cool, Crisp Cold Brew"} />
+      <HorizontalCardProduct category={"matcha"} heading={"Delight in the Smooth, Earthy Taste of Matcha"} />
+      <HorizontalCardProduct category={"cake"} heading={"Treat Yourself to a Sweet and Delicious Cake"} />
+      <VerticalCardProduct category={"cappuccino"} heading={"Enjoy the Perfect Blend of Frothy Cappuccino"} />
+      <VerticalCardProduct category={"cake"} heading={"Discover Delicious Desserts to Brighten Your Day"} />
+      <VerticalCardProduct category={"coldbrew"} heading={"Cold Brew Magic: Refreshment in Every Sip"} />
+      <VerticalCardProduct category={"matcha"} heading={"Embrace the Harmony of Green Tea in Every Cup"} />
+      <VerticalCardProduct category={"takeaway"} heading={"Grab Your Coffee To Go, Wherever You’re Headed"} />
+      <VerticalCardProduct category={"icecoffee"} heading={"Stay Cool with Our Chilled, Refreshing Ice Coffee"} />
+
       
       {/* Search Component */}
       <SearchTableHorizontal sendDataDate={sendDataDate} />
