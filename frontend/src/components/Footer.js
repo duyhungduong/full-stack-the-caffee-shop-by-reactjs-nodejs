@@ -33,7 +33,10 @@ const Footer = () => {
           <p className="text-sm max-w-xs mx-auto md:mx-0">
             Address: Khu II, 3/2 Street, Xuan Khanh, Ninh Kieu, Can Tho, VN
           </p>
-          
+          <img 
+          className="w-5"
+  alt="United States"
+  src="http://purecatamphetamine.github.io/country-flag-icons/3x2/VN.svg"/>
         </div>
 
         {/* Contact Info */}

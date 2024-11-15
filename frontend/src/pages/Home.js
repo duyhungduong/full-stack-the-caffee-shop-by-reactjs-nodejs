@@ -49,18 +49,25 @@ const Home = () => {
       <HorizontalCardDiscountProduct
         heading={"Chương trình Siêu Sale từ 15 đến 45%"}
       />
-      <VerticalCardProduct category={"matcha"} heading={"Matcha for life"} />
+      <VerticalCardProduct category={"americano"} heading={"Matcha for life"} />
+      <HorizontalCardProduct category={"espresso"} heading={"espresso"} />
+      <HorizontalCardProduct category={"americano"} heading={"americano"} />
       <HorizontalCardProduct category={"latte"} heading={"Enjoy Latte"} />
+      <HorizontalCardProduct category={"coldbrew"} heading={"coldbrew"} />
       <HorizontalCardProduct category={"matcha"} heading={"Enjoy Matcha"} />
+      
       <HorizontalCardProduct category={"cake"} heading={"Enjoy 1st Cake"} />
-      <VerticalCardProduct category={"takeaway"} heading={"Take Away Coffee"} />
-      <VerticalCardProduct category={"icecoffee"} heading={"Super IceCoffee"} />
-
-      <VerticalCardProduct category={"latte"} heading={"Real Latte"} />
+      
       <VerticalCardProduct
         category={"cappuccino"}
         heading={"Little Cappuccino"}
       />
+      <VerticalCardProduct category={"cake"} heading={"Matcha for life"} />
+      <VerticalCardProduct category={"coldbrew"} heading={"Matcha for life"} />
+      <VerticalCardProduct category={"matcha"} heading={"Matcha for life"} />
+      <VerticalCardProduct category={"takeaway"} heading={"Take Away Coffee"} />
+      <VerticalCardProduct category={"icecoffee"} heading={"Super IceCoffee"} />
+      
       {/* Search Component */}
       <SearchTableHorizontal sendDataDate={sendDataDate} />
 

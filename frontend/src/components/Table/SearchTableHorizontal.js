@@ -64,7 +64,7 @@ function SearchTableHorizontal(props) {
             id="tableType"
             name="tableType"
             onChange={handleChange}
-            className="border border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#6f4e37]"
+            className="border bg-white  dark:bg-gray-100  border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#6f4e37]"
           >
             <option value="">Chọn loại bàn</option>
             {tableTypeE.map((el, index) => (
@@ -83,7 +83,7 @@ function SearchTableHorizontal(props) {
             id="tableArea"
             name="tableArea"
             onChange={handleChange}
-            className="border border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#6f4e37]"
+            className="border bg-white  dark:bg-gray-100  border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#6f4e37]"
           >
             <option value="">Tất cả khu vực</option>
             {tableAreaA.map((el, index) => (
