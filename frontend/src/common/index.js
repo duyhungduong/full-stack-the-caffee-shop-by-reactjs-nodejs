@@ -166,6 +166,14 @@ const SummaryApi = {
     url: `${backendDomin}/api/booking-list`,
     method: "get",
   },
+  getBookingTableToday: {
+    url: `${backendDomin}/api/booking-today`,
+    method: "get",
+  },
+  bookingTablesTodayCount: {
+    url: `${backendDomin}/api/count-booking-table-today`,
+    method: "get",
+  },
   changeStatusTable: {
     url: `${backendDomin}/api/change-table-status`,
     method: "post",

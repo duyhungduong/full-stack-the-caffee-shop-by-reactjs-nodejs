@@ -60,6 +60,8 @@ const searchTableController = require("../controller/Table/searchTableController
 const userLoginFBController = require("../controller/User/userLoginFB");
 const { createBooking } = require("../controller/Booking/sendBookingConfirmationEmail");
 const getTopFavoritedProducts = require("../controller/Product/getTopFavoritedProducts");
+const bookingTodayController = require("../controller/Booking/bookingTodayController");
+const countTodayBookings = require("../controller/Booking/countTodayBookings");
 
 router.post("/signup", userSignUpController);
 router.post("/signin", userSignInController);
@@ -133,6 +135,8 @@ router.get("/booking-list", authToken, bookingController);
 router.post("/change-table-status", authToken, changeTableStatus);
 router.get("/all-booking", authToken, allBookingController);
 router.get("/count-booking-table", authToken, countBookingTable);
+router.get("/booking-today", authToken, bookingTodayController);
+router.get("/count-booking-table-today", authToken, countTodayBookings)
 //Message
 router.post("/send-message", addToMessageController);
 router.get("/getMessage", authToken, addToMessageView);

@@ -86,10 +86,10 @@ const VerticalTableCard = ({ loading, data = [] }) => {
             ) : (
               <div
                 key={product._id}
-                className="bg-red-200 rounded-lg shadow-md transition-transform transform hover:scale-105 opacity-0 animate-fadeIn delay-75 cursor-not-allowed"
+                className="bg-orange-200 rounded-lg shadow-md transition-transform transform hover:scale-105 opacity-0 animate-fadeIn delay-75 cursor-not-allowed"
                 onClick={handleClickUnBooking}
               >
-                <div className="bg-red-400 h-72 p-3 flex justify-center items-center">
+                <div className="bg-orange-400 h-72 p-3 flex justify-center items-center">
                   <img
                     className="object-cover h-full hover:scale-110 transition-all"
                     src={product.tableImage[0]}

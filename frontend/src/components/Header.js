@@ -22,6 +22,7 @@ import {
   FaUserCog,
 } from "react-icons/fa";
 import { BsFillPeopleFill, BsFillFileEarmarkTextFill } from "react-icons/bs";
+import { IoToday } from "react-icons/io5";
 
 const Header = () => {
   const user = useSelector((state) => state?.user?.user); // Them "? " neu ko co san user thi se thanh loi~
@@ -172,6 +173,21 @@ const Header = () => {
                       </span>
                     </Link>
                   )}
+                  {user?.role !== ROLE.GENERAL && (
+                    <Link
+                    to={"/booking-today"}
+                      className="block text-sm font-medium text-gray-700 hover:text-amber-600 hover:bg-gray-100 px-3 py-2 rounded-lg transition"
+                      onClick={() => setMenuDisplay((preve) => !preve)}
+                    >
+                      <IoToday/> Booking Today
+                      <span className="bg-amber-900 text-white text-xs font-bold mx-2 p-1 rounded-full">
+                        {context?.bookingTodayCount}
+                      </span>
+                    </Link>
+                  )
+
+                  }
+
                   {user?._id && (
                     <Link
                       to={"/booking-list"}

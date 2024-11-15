@@ -61,9 +61,7 @@ const AdminEditTable = ({ onClose, tableData, fetchdata }) => {
     });
   };
 
-  {
-    /**Cap nhat ban */
-  }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 

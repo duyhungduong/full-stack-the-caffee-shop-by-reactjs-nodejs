@@ -18,6 +18,7 @@ function App() {
   const [orderCount, setOrderCount] = useState(0)
   const [bookingCount, setBookingCount] = useState(0)
   const [unreadMessage, setUnreadMessage] = useState(0);
+  const [bookingTodayCount, setBookingTodayCount] = useState(0);
 
 
   //Can 1 context de chia se chuc nang nay
@@ -73,6 +74,14 @@ function App() {
     const dataApi = await dataResponse.json()
     setBookingCount(dataApi.data?.count)
   }
+  const fetchUserBookingTableToday = async() =>{
+    const dataResponse = await fetch(SummaryApi.bookingTablesTodayCount.url,{
+      method: SummaryApi.bookingTablesTodayCount.method,
+      credentials : 'include'
+    })
+    const dataApi = await dataResponse.json()
+    setBookingTodayCount(dataApi.data?.count)
+  }
   
   const fetchUserMessage = async() =>{
     const dataResponse = await fetch(SummaryApi.getCountUnreadMessage.url,{
@@ -99,6 +108,8 @@ function App() {
     fetchUserBookingProduct()
     //user message
     fetchUserMessage()
+    //booking table today
+    fetchUserBookingTableToday()
   })
   return (
     <>
@@ -114,6 +125,8 @@ function App() {
         unreadMessage,
         fetchUserBookingProduct,
         bookingCount,
+        fetchUserBookingTableToday,
+        bookingTodayCount,
       }}>
       <ToastContainer
       position="top-center"

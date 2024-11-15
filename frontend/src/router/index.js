@@ -28,6 +28,7 @@ import Notification from "../pages/Notification";
 import TypeTable from "../pages/TypeTable";
 import SendMessageToAll from "../pages/SendMessageToAll";
 import UserInfomationPage from "../pages/UserInfomationPage";
+import BookingToday from "../pages/BookingToday";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
       {
         path: "booking-list",
         element: <BookingPage />,
+      },
+      {
+        path: "booking-today",
+        element: <BookingToday />,
       },
       {
         path: "user-infomation",
