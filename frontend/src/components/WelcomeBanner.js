@@ -40,7 +40,7 @@ const WelcomeBanner = ({ heading, paragraphs }) => {
     <div className="flex items-center justify-center min-h-60 bg-coffee-background">
       <div className="text-center">
         {/* Heading chào mừng */}
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-pacifico font-medium text-coffee-dark mb-6 animate-pulse">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-pacifico font-medium text-coffee-dark mb-6">
           {heading}
         </h1>
 

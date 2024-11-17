@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import CategoryList from "../components/CategoryList";
 import BannerProduct from "../components/BannerProduct";
 import TypeTableList from "../components/TypeTableList";
-import AreaTableList from "../components/AreaTableList";
 import HorizontalCardProduct from "../components/HorizontalCardProduct";
 import VerticalCardProduct from "../components/VerticalCardProduct";
 import HorizonCardTable from "../components/Table/HorizonCardTable";
@@ -81,7 +80,6 @@ const Home = () => {
         </div>
       )}
 
-      {/* <AreaTableList /> */}
     </div>
   );
 };
