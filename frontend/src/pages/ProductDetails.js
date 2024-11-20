@@ -16,6 +16,7 @@ import { BiSolidDiscount } from "react-icons/bi";
 import scrollTop from "../helper/scrollTop";
 import CategoryWiseDiscountProductDisplay from "../components/CategoryWiseDiscountProductDisplay";
 import CategoryWiseTopFavoritedProductDisplay from "../components/CategoryWiseTopFavoritedProductDisplay";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const [data, setData] = useState({
@@ -104,11 +105,17 @@ const ProductDetails = () => {
     fetchUserAddToFavorite();
   };
 
+  
   const handleBuyProduct = async (e, id) => {
     await addToCart(e, id);
     fetchUserAddToCart();
-
-    navigate("/cart");
+    if(!user){
+      toast.error("Bạn cần đăng nhập để mua hàng");
+      navigate("/login");
+    }else{
+      navigate("/cart");
+    }
+    
   };
 
   return (
