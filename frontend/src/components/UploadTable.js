@@ -92,7 +92,7 @@ const handleDeletetableImage = async (index) => {
     <div className="fixed w-full h-full  bg-slate-100 bg-opacity-30 top-0 left-0 right-0 flex justify-center items-center">
       <div className="bg-white p-4 rounded w-full max-w-2xl h-full max-h-[80%] overflow-hidden">
         <div className="flex justify-between items-center pb-1">
-          <h2 className="font-bold text-lg ">Upload Product</h2>
+          <h2 className="font-bold text-lg ">Upload Table</h2>
           <div
             className="w-fit ml-auto text-xl hover:text-red-600"
             onClick={onClose}
@@ -288,7 +288,7 @@ const handleDeletetableImage = async (index) => {
                     </div>
           
           <button className="px-4 py-4 mt-2 mb-10 bg-[#0090da] hover:bg-[#0091daa7] text-white rounded-md shadow-xl ">
-            Thêm sản phẩm
+            Thêm bàn
           </button>
         </form>
 
